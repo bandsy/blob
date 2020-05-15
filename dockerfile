@@ -1,5 +1,5 @@
 # select build image
-FROM rust:1.43.1-alpine as build
+FROM rust:1.43.1 as build
 
 # create a new empty shell project
 RUN USER=root cargo new --bin blob
@@ -21,7 +21,7 @@ RUN rm ./target/release/deps/blob*
 RUN cargo build --release
 
 # our final base
-FROM rust:1.43.1-alpine
+FROM rust:1.43.1
 
 # copy the build artifact from the build stage
 COPY --from=build /blob/target/release/blob .
