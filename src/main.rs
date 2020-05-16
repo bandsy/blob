@@ -1,6 +1,5 @@
 use actix_web::{middleware, App, HttpServer};
 use dotenv::dotenv;
-use std::env;
 
 mod image;
 
